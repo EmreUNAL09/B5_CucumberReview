@@ -14,10 +14,7 @@ import org.junit.runner.RunWith;
         glue = "com/demoblaze/step_definitions",
         dryRun = false,
         tags = "@wip"
-
-
 )
-
 
 public class CukesRunner {
 }

@@ -2,7 +2,9 @@ package com.demoblaze.pages;
 
 import com.demoblaze.utilities.BrowserUtils;
 import com.demoblaze.utilities.ConfigurationReader;
+import com.demoblaze.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -50,5 +52,13 @@ public class LoginPage extends BasePage{
         password_loc.sendKeys(password);
         loginBtn_loc.click();
         BrowserUtils.waitFor(2);
+    }
+
+    public void verifyWithPopUpMessage_mtd(String expectedMessage){
+        Alert alert = Driver.get().switchTo().alert();
+        String actualMessage = alert.getText();
+        System.out.println("actualMessage = " + actualMessage);
+        System.out.println("expectedMessage = " + expectedMessage);
+        Assert.assertEquals("Message does NOT match", expectedMessage,actualMessage);
     }
 }
